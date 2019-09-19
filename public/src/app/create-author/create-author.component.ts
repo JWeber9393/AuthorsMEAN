@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
+import { HttpService } from '../http.service';
+
+
 
 @Component({
   selector: 'app-create-author',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAuthorComponent implements OnInit {
 
-  constructor() { }
+  newAuthor: any;
+
+  constructor(
+    private _httpService: HttpService,
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
+    this.newAuthor = {}
+   }
 
   ngOnInit() {
   }
 
+  createAuthorFromService(){
+    let obs = this._httpService.createAuthor(this.newAuthor);
+    obs.subscribe(data => {})
+    this._router.navigate([''])
+  }
 }

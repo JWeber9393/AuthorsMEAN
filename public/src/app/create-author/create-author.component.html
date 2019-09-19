@@ -1,1 +1,8 @@
-<p>create-author works!</p>
+
+<button [routerLink]="['']">Home</button>
+
+<p>Add New Author:</p>
+<form (submit)='createAuthorFromService()' method='POST'>
+    <input type="text" name="newAuthor.name" [(ngModel)]="newAuthor.name" placeholder="Enter Favorite Author">
+    <input type="submit" value="Submit">
+</form>

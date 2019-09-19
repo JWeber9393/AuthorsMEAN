@@ -1,1 +1,9 @@
-<p>edit-author works!</p>
+<button [routerLink]="['']">Home</button>
+
+<p>Edit Author:</p>
+<form>
+    <p>{{author | json}}</p>
+    Edit Name:
+    <input type="text" name="author.info.name" [(ngModel)]="author.info.name">
+    <input type="button" value="Submit" (click)="editAuthorFromService()">
+</form>

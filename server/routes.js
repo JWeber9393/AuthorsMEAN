@@ -6,4 +6,5 @@ module.exports = function (app) {
     app.post('/authors', controller.createAuthor)
     app.put('/authors/:id', controller.editAuthor)
     app.delete('/authors/:id', controller.deleteAuthor)
+    app.all("*", controller.reroute)
 }
